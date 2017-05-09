@@ -1,0 +1,13 @@
+from twilio import rest
+ 
+# Your Account Sid and Auth Token from twilio.com/user/account
+account_sid = "AC29fb4514274996c14a6ee966a8ea36ae"
+auth_token  = "9a8b1516f98e0d2cf467b29948e1f1fa"
+client = rest.TwilioRestClient(account_sid, auth_token)
+ 
+message = client.sms.messages.create(
+    body="its habiba texting from twilio",
+    to="+447766244327",    # Replace with your phone number
+    from_="+441582214749") # Replace with your Twilio number
+    
+print message.sid
